@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>querySelector</title>
+  </head>
+  <body>
+    <div id="info">123</div>
+    <div class="info">456</div>
+
+    <table border="1">
+      <tr class="tt">
+        <td class="cc">1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td class="cc">4</td>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+    </table>
+
+    <script>
+      let info1 = document.querySelector("#info");
+      console.log(info1.innerHTML);
+
+      let info2 = document.querySelector(".info");
+      console.log(info2.innerHTML);
+
+      let td1 = document.querySelector(".cc");
+      console.log(td1.innerHTML);
+
+      let td2 = document.querySelectorAll(".cc");
+      console.log(td2);
+      //   querySelectorAll回傳的NodeList是一個集合
+
+      console.log(td2[1].innerHTML);
+
+      td2[1].style.backgroundColor = "green";
+    </script>
+  </body>
+</html>

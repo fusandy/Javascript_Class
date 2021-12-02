@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conditional Operators</title>
+  </head>
+  <body>
+    <div id="info"></div>
+
+    <script>
+      let age = prompt("How old are you?");
+      age = +age;
+
+      //   info.innerHTML = isNaN(age) ? "請輸入正確的年齡數字" : "age";
+      //   info.innerHTML = !isNaN(age) && (age>=18) ? "請進" : "請回去";
+      info.innerHTML = isNaN(age)
+        ? "請輸入正確年齡"
+        : age >= 18
+        ? "請進"
+        : "請回去";
+
+      // let a = 10,
+      //   b,
+      //   c;
+      // let d = a > 10 ? (b = 1) : (c = 2);
+      // console.log(d);
+      //   b = undefined(因為上方的判斷式結果是false)，c = 2 , d = 2
+    </script>
+  </body>
+</html>
