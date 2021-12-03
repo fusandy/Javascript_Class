@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if else quiz</title>
+</head>
+<body>
+    <h2>請輸入真實年齡: </h2>
+    <input type="text" id="myInput">
+    <button onclick="age()">Click</button>   
+    <div id="info"></div>
+
+    <script>
+        const a = document.querySelector('#myInput');
+
+        function age() {
+                if (isNaN(+a.value)) {
+                    info.innerHTML = `資料類型錯誤`;
+                } else if (+a.value>=18) {
+                    info.innerHTML = `年滿18，歡迎回來`;
+                } else {
+                    info.innerHTML = `長大一點再來喔`;
+                }
+        }
+        // .value是取值，要等用戶輸入完資料後再取值，所以要寫在function裡
+        // 若宣告的時候就先取值，值=空白沒有東西，因為用戶什麼都還沒輸入
+    </script>
+        
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+<body>
+    <script>
+        let str = 'Spotify公布2021年度串流榜單，周杰倫和鄧紫棋分別蟬聯最多串流收聽的男女歌手'
+
+        // 基本用法
+        console.log(str.length);
+        console.log(str.charAt(15));
+        console.log(str[15]);
+        console.log('------');
+        // 索引字元
+        console.log(str.charCodeAt(5));
+        console.log(str.charCodeAt(25));
+        console.log(String.fromCharCode(20998));
+        console.log('------');
+        // 索引子字串
+        console.log(str.indexOf('榜單'));
+        console.log(str.lastIndexOf('榜單'));
+        console.log(str.indexOf('林俊傑'));
+        console.log(str.includes('榜單'));
+        console.log(str.includes('蔡依林'));
+        console.log('------');
+        // 查找字元，下了第二個參數(17)，代表從第17個字元往後找'串流'
+        console.log(str.indexOf('串流'));
+        console.log(str.indexOf(('串流'),17));
+        console.log('------');
+        // 將林俊傑取代周杰倫
+        console.log(str.split('周杰倫').join('林俊傑'));
+        console.log('------');
+        // 從第18個字元切到第25個字元，，但結果不包含25
+        console.log(str.slice(18,25));
+
+
+        
+
+
+
+
+
+    </script>
+</body>
+</html>
