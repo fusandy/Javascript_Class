@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if else</title>
+</head>
+<body>
+    <h2>請輸入真實年齡: </h2>
+    <input type="number" id="myInput">
+    <button onclick="myclick()">Click</button>   
+    <div id="info"></div>
+
+    <script>
+        const a = document.querySelector('#myInput');
+
+        function myclick() {
+            let age = + a.value;
+            if (age>=18) {
+                info.innerHTML = `年滿18，歡迎回來`;
+            } else {
+                info.innerHTML = `長大一點再來喔`;
+            }
+            // 以上也可寫成三元運算子
+            // info.innerHTML = (age>=18) ? `年滿18，歡迎回來` : `長大一點再來喔`;
+        }
+
+        
+        
+    </script>
+    
+</body>
+</html>

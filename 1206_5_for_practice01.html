@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for practice01</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: antiquewhite;
+        }
+        .ball{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            line-height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+    </div>
+
+    <script>
+        const rect = document.querySelector('.rect')
+        
+        // b.className='ball';
+        // b.innerHTML='Hi';
+        // b.style.left='200px';
+        // b.style.top='50px';
+        // rect.appendChild(b);
+
+        let b,i;
+        for (i=1; i<=10 ; i++){
+            b = document.createElement('div');
+            // b生成物件<div>要在迴圈內宣告，如果宣告在迴圈外，只會跑一次然後一直覆蓋下去
+            b.className='ball';
+            b.innerHTML=i;
+            b.style.left= (20 + i*50) + 'px';
+            b.style.top= '100px';
+            rect.appendChild(b);
+            // 將生成的b<div>放回rect中
+        }
+        
+
+    </script>
+
+
+
+</body>
+</html>

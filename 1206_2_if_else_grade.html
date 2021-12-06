@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if else</title>
+</head>
+<body>
+    <h2>請輸入成績: </h2>
+    <input type="number" id="myInput" min="0" max="100">
+    <button onclick="myclick()">Click</button>   
+    <div id="info"></div>
+
+    <script>
+        const a = document.querySelector('#myInput');
+        const info = document.querySelector('#info');
+
+        function myclick() {
+            let score = + a.value;
+            let g;   //也可以不宣告g，然後在判斷式中每個都寫info.innerHTML = g;
+            
+            if (score>=90){
+                g = "A";
+            } else if (score>=80) {
+                g = "B";
+            } else if (score>=70) {
+                g = "C";
+            } else if (score>=60) {
+                g = "D";
+            } else {
+                g = "F";
+            }
+            info.innerHTML = g ;
+        }
+        
+        
+    </script>
+    
+</body>
+</html>

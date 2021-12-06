@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol</title>
+</head>
+<body>
+
+
+
+    <script>
+        const s1 = Symbol('my symbol');
+        const s2 = Symbol('my symbol');
+        const s3 = s1;
+
+        // symbol用途:為了要放功能進去，但不要隨意被其他人覆蓋
+
+        const gender = 'male'; //male是變數值
+
+        const person = {
+            name: 'David',
+            age: 23,
+            gender: gender,
+            [gender]: 123, //以變數值當屬性名稱
+            [s1]: 'hello symbol',
+        };
+
+        console.log(person);
+        
+        for(let s in person){
+            console.log(s, person[s]);
+        }
+        
+
+    </script>
+    
+</body>
+</html>

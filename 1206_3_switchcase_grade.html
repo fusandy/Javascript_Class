@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch case</title>
+</head>
+<body>
+    <h2>請輸入成績: </h2>
+    <input type="number" id="myInput" min="0" max="100">
+    <button onclick="myclick()">Click</button>   
+    <div class="info"></div>
+
+    <script>
+        const a = document.querySelector('#myInput');
+        let info = document.querySelector('.info');
+
+        function myclick() {
+        let s = Math.floor(+ a.value / 10);
+            
+            switch(s){
+                case 10:
+                case 9:
+                g = "A";
+                break;
+                case 8:
+                g = "B";
+                break;
+                case 7:
+                g = "C";
+                break;
+                case 6:
+                g = "D";
+                break;
+                default:
+                g = "F";
+            }         
+            document.querySelector('.info').innerHTML = g ;
+        }
+        
+        
+    </script>
+    
+</body>
+</html>

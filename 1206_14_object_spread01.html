@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spread operator01</title>
+</head>
+<body>
+    <script>
+        let name = 'Billy';
+        let age = 30;
+        const p1 ={
+            name,
+            age,
+        };
+        console.log(p1);
+
+        const p2 = {...p1} ;  //展開運算子 => 淺層/單層複製，產生兩個不同的物件
+        p2.name='David';
+        // 拷貝加修改可以一行寫成 : const p2 ={...p1, name:'David'};
+        console.log(p2);
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

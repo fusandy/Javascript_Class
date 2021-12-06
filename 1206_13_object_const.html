@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>const</title>
+</head>
+<body>
+    <script>
+        let name = 'Billy';
+        let age = 30;
+        const p1 ={
+            name,
+            age,
+        };
+
+        console.log(p1);
+
+        console.log('-------');
+
+        const p2 = p1;  //const不能用等號重新設定變數值，但可以用參照關係去改變原本的物件屬性
+        p2.name = 'Kelly';
+        console.log(p2);
+
+    </script>
+    
+</body>
+</html>

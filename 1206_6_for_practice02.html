@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for practice02</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: antiquewhite;
+        }
+        .ball{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            line-height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <div class="ball">1</div>
+    </div>
+
+    <script>
+        const rect = document.querySelector('.rect')
+        
+        // 另一種作法:宣告字串
+        let str = '';
+        for (let i=1; i<=10 ; i++){
+            str += `<div class="ball" style="left: ${30+i*70}px; top:50px;">${i}</div>`;
+            // str = str + `<div class="ball" style="left: ${30+i*70}px; top:50px;">${i}</div>`
+        }
+        rect.innerHTML = str;
+
+    </script>
+
+
+
+</body>
+</html>

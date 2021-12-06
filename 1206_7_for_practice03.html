@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for practice03</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: antiquewhite;
+        }
+        .ball{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            line-height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <div class="ball">1</div>
+    </div>
+
+    <script>
+        // 巢狀迴圈(講義範例)
+        const rect = document.querySelector('.rect')
+        let b, i, k, n=1;
+        for (k=0; k<6; k=k+1){
+            for (i=0; i<10; i=i+1, n=n+1){
+                b=document.createElement('div');
+                b.className='ball';
+                b.innerHTML=n;
+                b.style.left=i*50 + 'px';
+                b.style.top=k*60 + 'px';
+                rect.appendChild(b);
+            }
+        }
+    </script>
+
+
+
+</body>
+</html>
