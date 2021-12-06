@@ -4,27 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>spread operator03</title>
+    <title>spread operator02</title>
 </head>
 <body>
     <script>
         const p1 ={
-            name: 'Billy',
+            name: {
+                first:'Billy',
+                last:'Harris',
+            },
             age: 25,
         };
         console.log(p1);
 
         console.log('------------');
-        
-        let {name,age} = p1;
-        console.log({name,age});
 
-        console.log('------------');
+        const p2 = {...p1} ; 
+        p2.name.first='aaron';
+        console.log(p2);
 
-        p1.name='Max';
-        let {name:myName,age:myAge} = p1; //展開設定
-        console.log({myName, myAge});
-        
+        //p1與p2只有單層拷貝
 
 
 

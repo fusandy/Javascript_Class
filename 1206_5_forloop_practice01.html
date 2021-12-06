@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>for practice03</title>
+    <title>forloop practice01</title>
     <style>
         .rect{
             position: relative;
@@ -14,8 +14,8 @@
         }
         .ball{
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background-color: white;
             line-height: 40px;
@@ -25,23 +25,18 @@
 </head>
 <body>
     <div class="rect">
-        <div class="ball">1</div>
     </div>
 
     <script>
-        // 巢狀迴圈(講義範例)
-        const rect = document.querySelector('.rect')
-        let b, i, k, n=1;
-        for (k=0; k<6; k=k+1){
-            for (i=0; i<10; i=i+1, n=n+1){
-                b=document.createElement('div');
-                b.className='ball';
-                b.innerHTML=n;
-                b.style.left=i*50 + 'px';
-                b.style.top=k*60 + 'px';
-                rect.appendChild(b);
-            }
-        }
+        const rect = document.querySelector('.rect');
+        let b = document.createElement('div');
+        // 這個div沒有在DOM裡面，但存於記憶體中
+        b.className='ball';
+        b.innerHTML='Hi';
+        b.style.left='200px';
+        b.style.top='50px';
+        rect.appendChild(b);      
+        // 將生成的div放回rect中
     </script>
 
 

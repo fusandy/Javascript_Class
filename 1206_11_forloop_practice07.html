@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>for practice02</title>
+    <title>forloop practice07</title>
     <style>
         .rect{
             position: relative;
@@ -14,8 +14,8 @@
         }
         .ball{
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             background-color: white;
             line-height: 40px;
@@ -29,15 +29,22 @@
     </div>
 
     <script>
-        const rect = document.querySelector('.rect')
-        
-        // 另一種作法:宣告字串
+        const rect = document.querySelector('.rect');
         let str = '';
-        for (let i=1; i<=10 ; i++){
-            str += `<div class="ball" style="left: ${30+i*70}px; top:50px;">${i}</div>`;
-            // str = str + `<div class="ball" style="left: ${30+i*70}px; top:50px;">${i}</div>`
+
+        for(let i=0 ; i<16 ; i++) {
+            let x = i % 4; //決定幾個排一列(水平)
+            let y =Math.floor(i/4); //決定要排幾欄(垂直)
+
+            console.log(x,y);
+
+            str += `<div class="ball" style="
+                        left: ${x*70}px; 
+                        top:${y*70}px;
+                        ">${i+1}</div>`;
         }
         rect.innerHTML = str;
+
 
     </script>
 

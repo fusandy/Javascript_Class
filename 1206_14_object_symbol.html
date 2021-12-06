@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol</title>
+</head>
+<body>
+    <script>
+        // part 1
+        // const s1 = Symbol('my symbol');
+        // const s2 = Symbol('my symbol');
+        // console.log(s1 == s2);
+
+        // part 2
+        const s1 = Symbol('my symbol');
+        const s2 = Symbol('my symbol');
+        const s3 = s1;
+        console.log(s1 == s3);
+
+        // symbol用途:為了要放功能進去，但不要隨意被其他人覆蓋
+
+        // part 3
+/*        const gender = 'male'; //male是變數值
+        const person = {
+            name: 'David',
+            age: 23,
+            gender: gender,
+        };
+        console.log(person);
+*/        
+        //part 4
+/*        const gender = 'male'; //male是變數值
+        const person = {
+            name: 'David',
+            age: 23,
+            gender: gender,
+            [gender]: 123, //以變數值當屬性名稱
+            [s1]: 'hello symbol',
+        };
+        console.log(person);
+*/ 
+        //part 5
+        const gender = 'male'; 
+        const person = {
+            name: 'David',
+            age: 23,
+            gender: gender,
+            [gender]: 123,
+            [s1]: 'hello symbol', //用symbol當作屬性
+        };
+        console.log(person);
+        for(let s in person){
+            console.log(s,person[s]); //用forin迴圈抓不到symbol的值
+        }
+
+    </script>
+    
+</body>
+</html>

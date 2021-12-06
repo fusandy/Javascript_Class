@@ -15,10 +15,19 @@
     <script>
         const a = document.querySelector('#myInput');
         const info = document.querySelector('#info');
+        // let score = +a.value
+        // 這段寫在function外的話，還沒有按click前，取得值都是0
+        // 當用戶按下click之後，進到function，就會缺少取值的步驟，導致無法判斷if else
+        
+        // (寫法二) let score;
+        // 宣告在function外，但取值在function內
+
 
         function myclick() {
             let score = + a.value;
-            let g;   //也可以不宣告g，然後在判斷式中每個都寫info.innerHTML = g;
+            // (寫法二) score = +a.value
+            let g;   
+            //也可以不宣告g，然後在判斷式中每個都寫info.innerHTML = g;
             
             if (score>=90){
                 g = "A";

@@ -14,12 +14,11 @@
             name,
             age,
         };
-
         console.log(p1);
 
         console.log('-------');
 
-        const p2 = p1;  //const不能用等號重新設定變數值，但可以用參照關係去改變原本的物件屬性
+        const p2 = p1;  //雖然const不能用等號重新設定變數值，但可以用參照關係去改變原本的屬性值
         p2.name = 'Kelly';
         console.log(p2);
 
