@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array sort</title>
+</head>
+<body>
+    <script>
+        const ar=[2,78,4,16,8,10];
+        ar.sort();
+        ar.sort(function(a,b){
+            return a-b;       
+        });
+        console.log(ar);
+
+        ar.sort(function(a,b){
+            return b-a;       
+        });
+        console.log(ar);
+
+
+
+    </script>
+</body>
+</html>

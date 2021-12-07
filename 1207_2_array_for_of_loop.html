@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array for of loop</title>
+</head>
+<body>
+    <script>
+        const ar = [23, 'abc', true, {name:'John'}];
+        ar[9]=99;
+        ar[-2]=10;
+        ar['age']=23;
+        
+        // for 迴圈
+        for(let i=0 ; i<ar.length ; i++){
+            console.log(i+':'+ar[i]);
+        }
+        console.log('------');
+
+        // for in 迴圈
+        for(let s in ar) {
+            console.log(s,ar[s]);
+        }
+        console.log('------');
+
+        // for of 迴圈
+        for(let v of ar){
+            console.log(v);
+        }
+
+    </script>
+</body>
+</html>
