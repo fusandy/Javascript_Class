@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout</title>
+</head>
+<body>
+    <button onclick="clearInterval(intervalId)">stop</button>
+    <script>
+    //setTimeout
+    // 間隔一段時間後，觸發一次，單位:毫秒(2000=2秒)
+    setTimeout(function(){
+        console.log('setTimeout');   //2秒之後console出setTimeout字串
+    }, 2000);
+
+    // setInterval
+    // 間隔一段時間後，重複觸發
+    // 唯一解藥: 用button
+    // intervalID : setInterval啟動時，自動產生的一個控制編碼
+    // 在button上增加 onclick="clearInterval(intervalId)"
+    let n = 0;
+    const intervalId = setInterval(function(){
+        console.log(++n);  //n從0開始，每隔1秒，console出++n
+    }, 1000); 
+    
+    </script>   
+</body>
+</html>

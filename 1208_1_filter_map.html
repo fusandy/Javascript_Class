@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter map</title>
+</head>
+<body>
+    <script>
+        const ar=[2,3,78,7,4,51,8,10,92];
+
+        // filter
+        const ar2=ar.filter(function(currentValue){
+            return currentValue % 2 ===0;  //回傳Boolean, true是要的資料
+        });
+        console.log(ar2);
+        // map
+        const ar3=ar.map(function(currentValue){
+            return currentValue*currentValue;
+        });
+        console.log(ar3);
+
+
+        // 用map將每個人的年紀+10歲
+        const ar4 = [
+            {name:'Apple', age:15},
+            {name:'Billy', age:50},
+            {name:'Casey', age:32},
+            {name:'David', age:28},
+            {name:'Flora', age:66},
+        ];
+
+        const ar5=ar4.map(function(v){
+            return v.age+10 ; 
+        })
+        console.log(ar5);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sort advanced quiz03</title>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Age</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <button class="" onclick="renderTable('nameSmall')">姓名由小到大</button>
+    <button class="" onclick="renderTable('nameBig')">姓名由大到小</button>
+    <button class="" onclick="renderTable('ageSmall')">年紀由小到大</button>
+    <button class="" onclick="renderTable('ageBig')">年紀由大到小</button>
+
+    <script>
+        // 寫法三
+        let orderBy = '';
+        const tbody = document.querySelector('tbody');
+
+        const nameList =[
+            {name:'David', age:25},
+            {name:'Carl', age:20},
+            {name:'Bill', age:31},
+       ];
+
+        function renderTable(orderBy) {
+            nameList.sort(function(a,b){
+                switch(orderBy){
+                    default:
+                    case 'nameSmall':
+                    return a.name > b.name ? 1 : -1 ;
+                    break;
+                    case 'nameBig':
+                    return b.name > a.name ? 1 : -1 ;
+                    break;
+                    case 'ageSmall':
+                    return a.age - b.age ;
+                    case 'ageBig':
+                    return b.age - a.age ;
+                }
+            });
+            
+
+            // 用map改寫
+            tbody.innerHTML = nameList.map(({name, age}) =>
+            `<tr>
+                <td>${name}</td>
+                <td>${age}</td>
+            </tr>`).join('');
+        };
+
+
+    
+        
+        
+        
+        
+    
+    
+
+    </script>
+</body>
+</html>

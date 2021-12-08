@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function basic02</title>
+</head>
+<body>
+    <script>
+        // 匿名函式
+        const f = function (){
+
+        };
+
+        console.log(alert);
+        console.log(f);
+        console.log(typeof f);
+        console.log(f.constructor.name);
+
+        // closure 閉包 兩種寫法
+        // 函式外呼叫
+        (function (){
+            console.log('123');
+        })();
+        // 函式內呼叫  
+        (function (){
+            console.log('456');
+        }());
+
+        // 以變數設定方式建立函式
+        const sortFunc = function(a, b){
+            return a-b;
+        };
+
+        const ar = [3, 1, 6, 2, 19, 8];
+        ar.sort(sortFunc);   // 比sortFunc的參照丟給它，判斷正負值後進行ar陣列的排序
+        console.log(ar);
+
+        console.log(sortFunc(8, 6)); // 呼叫sortFunc，並給參數8,6，進行function運算
+
+
+        
+
+
+        
+    </script>
+</body>
+</html>

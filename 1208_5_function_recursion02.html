@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function recursion02</title>
+</head>
+<body>
+    <script>
+        // 堆疊觀念 : 先進後出
+        const a = function (){
+        console.log('a begin');
+        b();
+        console.log('a end');
+
+        };
+        const b = function (){
+            console.log('b begin');
+            c();
+            console.log('b end');
+        };
+        const c = function (){
+            console.log('c begin');
+            console.log('c end');
+        };
+        a();
+
+
+        //     const a = function (){
+        //     console.log('a begin');
+        //     const n = b();
+        //     console.log('a end');
+        //     return 3*n;
+        // };
+        // const b = function (){
+        //     console.log('b begin');
+        //     const n = c();
+        //     console.log('b end');
+        //     return 2*n;
+        // };
+        // const c = function (){
+        //     console.log('c begin');
+
+        //     console.log('c end');
+        //     return 5;
+        // };
+        // console.log(a());
+
+
+
+
+
+
+        
+
+
+
+        
+
+        
+    </script>
+</body>
+</html>

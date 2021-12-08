@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sort advanced quiz01</title>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Age</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <button class="" onclick="nameSmall()">姓名由小到大</button>
+    <button class="" onclick="nameBig()">姓名由大到小</button>
+    <button class="" onclick="ageSmall()">年紀由小到大</button>
+    <button class="" onclick="ageBig()">年紀由大到小</button>
+
+    
+
+    <script>
+        // 題目: 分姓名(字碼大到小、小到大) & 年紀(大到小、小到大)，按下button後, 電腦會自動排序，呈現在DOM上面
+        // 寫法一
+        const tbody = document.querySelector('tbody');
+
+        const nameList =[
+            {name:'David', age:25},
+            {name:'Carl', age:20},
+            {name:'Bill', age:31},
+       ];
+
+        function nameSmall() {
+            nameList.sort(function(a,b){
+                return a.name > b.name ? 1 : -1 ;
+            })
+
+            let str ='';
+            for(let n of nameList){
+                str += `<tr>
+                    <td>${n.name}</td>
+                    <td>${n.age}</td>
+                    </tr>`;
+            }
+            tbody.innerHTML = str;
+        };
+
+        function nameBig() {
+            nameList.sort(function(a,b){
+                return b.name > a.name ? 1 : -1 ;
+            })
+
+            let str ='';
+            for(let n of nameList){
+                str += `<tr>
+                    <td>${n.name}</td>
+                    <td>${n.age}</td>
+                    </tr>`;
+            }
+            tbody.innerHTML = str;
+        };
+
+        function ageSmall() {
+            nameList.sort(function(a,b){
+                return a.age - b.age ;
+            })
+
+            let str ='';
+            for(let n of nameList){
+                str += `<tr>
+                    <td>${n.name}</td>
+                    <td>${n.age}</td>
+                    </tr>`;
+            }
+            tbody.innerHTML = str;
+        };
+
+        function ageBig() {
+            nameList.sort(function(a,b){
+                return b.age - a.age ;
+            })
+
+            let str ='';
+            for(let n of nameList){
+                str += `<tr>
+                    <td>${n.name}</td>
+                    <td>${n.age}</td>
+                    </tr>`;
+            }
+            tbody.innerHTML = str;
+        };
+
+        // nameSmall();   // 一開始先呼叫
+        
+        
+        
+        
+    
+    
+
+    </script>
+</body>
+</html>

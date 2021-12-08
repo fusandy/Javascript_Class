@@ -19,10 +19,10 @@
         // 用if else
 
         people.sort(function(a,b){
-            if (a.age-b.age === 0){
-                return a.name > b.name ? 1 : -1 ;
+            if (a.age === b.age){    // 判斷式也可以寫成 (a.age - b.age === 0)
+                return a.name > b.name ? 1 : -1 ;  //年齡一樣時，改用名字排列
             } else {
-                return a.age-b.age;
+                return a.age-b.age;  //年齡不同時，就按小到大排即可
             }
         })
         console.log(people);
@@ -34,4 +34,4 @@
 
     </script>
 </body>
-</html>}
+</html>
