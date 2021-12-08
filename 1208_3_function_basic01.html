@@ -10,27 +10,27 @@
     <script>
 
         // Basic
-        // console.log(myFunc(7,9,12));
-        // console.log(myFunc(7));
-        // function myFunc(a,b){
-        //     return a*b;         
-        // };
+        console.log(myFunc(7,9,12));
+        console.log(myFunc(7));
+        function myFunc(a,b){
+            return a*b;         
+        };
         
 
         // arguments
-        // console.log(myFunc(7,9,12));
-        // function myFunc(a,b){
-        //     console.log(arguments);
-        // };
+        console.log(myFunc2(7,9,12));
+        function myFunc2(a,b){
+            console.log(arguments);
+        };
 
 
         // ...b 用在function內，稱為rest operator，用於蒐集剩下的參數並放在陣列中
-        function myFunc2(a, ...b){   
+        function myFunc3(a, ...b){   
             console.log({a,b});
             return a;
         }
-        console.log(myFunc2(3,5,7,9));  // 剩下的 5,7,9 放進陣列中 [5,7,9]
-        console.log(myFunc2(3));       // a=3, 沒有其他剩餘值，所以陣列為空陣列
+        console.log(myFunc3(3,5,7,9));  // 剩下的 5,7,9 放進陣列中 [5,7,9]
+        console.log(myFunc3(3));       // a=3, 沒有其他剩餘值，所以陣列為空陣列
 
 
 
