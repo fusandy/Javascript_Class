@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random ball01</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background-color: rgb(231, 231, 231);
+        }
+        .ball{
+            position: absolute;
+            width:20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color:rgba(255, 255, 255, 0.746);
+        }
+    </style>
+</head>
+<body>
+    <div class="rect"></div>
+    
+    <script>
+        // 靜態的亂數泡泡
+        const rect = document.querySelector('.rect');
+
+        for (let i=0 ; i<100 ; i++) {
+            const b = document.createElement('div');
+            b.className = 'ball';
+            b.style.left = Math.floor(Math.random()*600)+'px';
+            b.style.top = Math.floor(Math.random()*600)+'px';
+            const size = 5 + Math.floor(Math.random()*31)+'px';
+            b.style.width=b.style.height=size;
+            b.style.backgroundColor=`hsl(${Math.random()*360},50%,60%)`;
+            // b.style.backgroundColor=`rgb(${Math.random()*256},${Math.random()*256},${Math.random()*256})`;  //rgb寫法
+            rect.append(b);
+        };
+        
+
+
+
+    </script>
+</body>
+</html>

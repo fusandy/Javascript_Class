@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random ball01</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background-color: rgb(231, 231, 231);
+            overflow: hidden;
+        }
+        .ball{
+            position: absolute;
+            width:20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color:rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+    <div class="rect"></div>
+    
+    <script>
+        // 動態的亂數泡泡
+        const rect = document.querySelector('.rect');
+        const balls = []; // 宣告一個空陣列
+
+        for (let i=0 ; i<100 ; i++) {
+            const b = document.createElement('div');
+            b.className = 'ball';
+            b.style.left = Math.floor(Math.random()*600)+'px';
+            b.style.top = Math.floor(Math.random()*600)+'px';
+            const size = 5 + Math.floor(Math.random()*31)+'px';
+            b.style.width=b.style.height=size;
+            b.style.backgroundColor=`hsl(${Math.random()*360},50%,60%)`;
+            rect.append(b);
+            balls.push(b); // 把所有的球丟進'balls'的陣列中
+        };
+        
+            function runBalls(){
+            balls.forEach( b => {
+                b.style.top = parseInt(b.style.top)-2-Math.floor(Math.random()*5)+'px'; //往上錯綜 
+                b.style.left = parseInt(b.style.left)-(Math.floor(Math.random()*5)-2) + 'px';  //平均左右移動2
+                
+                if (b.style.top<0) {
+                    b.style.top = parseInt(b.style.top) + 600 +'px';
+                };
+
+            });
+            setTimeout(runBalls, 30);
+        };
+        runBalls();
+
+        // HW 讓泡泡無限循環 overflow:hidden
+
+
+
+    </script>
+</body>
+</html>
