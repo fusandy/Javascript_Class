@@ -8,9 +8,17 @@
 </head>
 <body>
     <div id="info"></div>
+
+    <!-- 掛Day.js 的CDN Library進來 -->    
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
     <script>
-        info.innerHTML = dayjs().format('YYYY/MM/DD');
-    </script>
+    // dayjs().format();
+    // 把day.js當作function來使用，上方一樣會拿到當下的時間
+    info.innerHTML = dayjs().format('DD-MM-YYYY');
+    
+    
+    
+    </script>  
 </body>
 </html>

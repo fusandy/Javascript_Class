@@ -32,17 +32,16 @@
 <script>
     const rect = document.querySelector('.rect');
 
-    const ballNum = 12;
-    const angUnit = 2 * Math.PI/ballNum; // radian, 弧度  // 2拍=360度 => 2拍/12小圓圈=每個小圓圈的角度
+    const ballNum = 12;  //12顆圓球
+    const angUnit = 2 * Math.PI/ballNum; // angUnit單位角度;radian弧度  // 2拍=360度 => 2拍/12小圓圈=每個小圓圈的弧度
 
 
     for(let i=0; i<ballNum; i++){
         const b = document.createElement('div');
         b.className = 'ball';
         b.innerHTML = i.toString();
-
-        b.style.left = 300 + 200*Math.cos(angUnit*i) + 'px';
-        b.style.top = 300 + 200*Math.sin(angUnit*i) + 'px';
+        b.style.left = 280 + 260*Math.cos(angUnit*i) + 'px'; //圓心300 半徑200
+        b.style.top = 280 + 260*Math.sin(angUnit*i) + 'px';
         rect.append(b);
     }
 

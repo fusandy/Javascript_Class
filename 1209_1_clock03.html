@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock03</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background-color: rgb(0, 0, 0);
+        }
+        .hand{
+            position: absolute;
+            left: 298px;
+            top: 300px;
+            background-color:white;
+            width:4px;
+            height: 4px;
+            border-radius: 50%;
+        }
+        .sec-hand{
+            position: absolute;
+            width: 4px;
+            height: 250px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 3px;
+            /* left: -2px; */
+            top: -247px; 
+        }
+        .line{
+            width: 2px;
+            height: 10px;
+            border-radius: 3px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 只有秒針的時鐘 -->
+    <span id="time">現在時間:</span>
+    <span id="info"></span>
+    <div class="rect">
+        <!-- 秒針 -->
+        <div class="hand" id="sec_hand">
+            <div class="sec-hand"></div>
+        </div>
+    </div>
+    
+    <script>
+        const sec_hand = document.querySelector('#sec_hand');
+        
+        // 秒針
+        function secClock(){
+            const now = new Date;  // 需要先取得當下時間
+            info.innerHTML = now.toString().split(' ')[4];  //僅止於將文字時間展示在DOM上
+        
+            const s = now.getSeconds();  //取得當下時間的秒
+            sec_hand.style.transform = `rotate(${s*6}deg)`;  // 60秒跑360度 => 1秒跑6度
+            setTimeout(secClock, 1000); // 在function內設置一個計時器，每一秒再跑一次secClock function
+        };
+        secClock();
+        
+        // 刻度
+        const rect = document.querySelector('.rect');
+
+    const ballNum = 12;  //12顆圓球
+    const angUnit = 2 * Math.PI/ballNum; // angUnit單位角度;radian弧度  // 2拍=360度 => 2拍/12小圓圈=每個小圓圈的弧度
+
+
+    for(let i=0; i<ballNum; i++){
+        const b = document.createElement('div');
+        b.className = 'ball';
+        b.innerHTML = i.toString();
+        b.style.left = 280 + 260*Math.cos(angUnit*i) + 'px'; //圓心300 半徑200
+        b.style.top = 280 + 260*Math.sin(angUnit*i) + 'px';
+        rect.append(b);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // function hourNumber() {
+        //     let str ='';
+            
+        //     for(let i=0 ; i<12 ; i++){
+        //         const Line = document.createElement('div');
+        //         str += `<div class="Line" style="
+        //             width:4px;
+        //             height:20px;
+        //             color:white;
+        //             position:relative;
+        //             transform:rotate${i*6}deg">
+        //             </div>`;       
+        //     }
+        //     clock.innerHTML = str;
+        // };
+        // hourNumber();
+
+
+
+        // 隨著角度轉變的刻度想不到
+        // for (let i=0 ; i<12 ; i++) {
+        //     const b = document.createElement('div');
+        //     b.className = 'number';
+        //     b.style.position = 'absolute' ;
+        //     b.style.left = 298 +'px';
+        //     b.style.top = 10 +'px';
+        //     b.style.width = 4 +'px';
+        //     b.style.height = 30 +'px';
+        //     b.style.backgroundColor = 'white';
+        //     b.style.rotate = (i*6)+'px';
+        //     clock.append(b);
+        // };
+        
+
+        
+
+
+
+
+
+
+        
+
+
+
+    </script>
+</body>
+</html>

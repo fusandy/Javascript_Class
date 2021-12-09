@@ -8,17 +8,12 @@
 </head>
 <body>
     <script>
-        // 匿名函式
-        const f = function (){
-        // 建立一個function給到變數f
-        };
-
-        console.log(alert);
-        console.log(f);
-        console.log(typeof f);
-        console.log(f.constructor.name);
-
         // closure 閉包 兩種寫法
+        // 廣義 : function
+        // 狹義 : 夾層，包含兩個以上的function
+        // 優點 : 把區域變數與全域變數隔開
+
+
         // 函式外呼叫
         (function (){
             console.log('123');
@@ -40,10 +35,7 @@
         console.log(sortFunc(8, 6)); // 呼叫sortFunc，並給參數8,6，進行function運算
 
 
-        
-
-
-        
+                
     </script>
 </body>
 </html>

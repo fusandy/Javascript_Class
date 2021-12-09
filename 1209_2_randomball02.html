@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>random ball01</title>
+    <title>random ball02</title>
     <style>
         .rect{
             position: relative;
@@ -38,7 +38,7 @@
             const size = 5 + Math.floor(Math.random()*31)+'px';
             b.style.width=b.style.height=size;
             b.style.backgroundColor=`hsl(${Math.random()*360},50%,60%)`;
-            rect.append(b);
+            rect.append(b); // 把球放進DOM裡面
             balls.push(b); // 把所有的球丟進'balls'的陣列中
         };
         
@@ -47,16 +47,16 @@
                 b.style.top = parseInt(b.style.top)-2-Math.floor(Math.random()*5)+'px'; //往上錯綜 
                 b.style.left = parseInt(b.style.left)-(Math.floor(Math.random()*5)-2) + 'px';  //平均左右移動2
                 
-                if (b.style.top<0) {
+
+                // 取整數的值<0，代表已超去div，那就讓b.style.top的原點回到div的最下方
+                if (parseInt(b.style.top)<0) {
                     b.style.top = parseInt(b.style.top) + 600 +'px';
                 };
 
             });
-            setTimeout(runBalls, 30);
+            setTimeout(runBalls, 40);
         };
         runBalls();
-
-        // HW 讓泡泡無限循環 overflow:hidden
 
 
 

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock03</title>
+    <style>
+        .clock{
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background-color: rgb(0, 0, 0);
+        }
+        .hand{
+            position: absolute;
+            left: 296px;
+            top: 300px;
+            background-color:white;
+            width:4px;
+            height: 4px;
+            border-radius: 50%;
+        }
+        .sec-hand{
+            position: absolute;
+            width: 4px;
+            height: 280px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 3px;
+            /* left: -2px; */
+            top: -277px; 
+        }
+        .min-hand{
+            position: absolute;
+            width: 6px;
+            height: 150px;
+            background-color: rgb(231, 243, 59);
+            border-radius: 3px;
+            left: -1px;
+            top: -148px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 有秒針、分針、時針、刻度的時鐘 -->
+    <span id="time">現在時間:</span>
+    <span id="info"></span>
+
+    <div class="clock">
+        <!-- 秒針 -->
+        <div class="hand" id="sec_hand">
+            <div class="sec-hand"></div>
+        </div>
+        <!-- 分針 -->
+        <div class="hand" id="min_hand">
+            <div class="min-hand"></div>
+        </div>
+    </div>
+    
+    <script>
+        const sec_hand = document.querySelector('#sec_hand');
+        const min_hand = document.querySelector('#min_hand');
+
+        // sec_hand.style.transform = 'rotate(30deg)';
+        
+        // 秒針
+        function sClock(){
+            const now = new Date;
+            info.innerHTML = now.toString().split(' ')[4];
+        
+            const s = now.getSeconds();
+            sec_hand.style.transform = `rotate(${s*6}deg)`;
+            // 一分鐘60秒，360度 => 1秒跑6度
+            setTimeout(sClock, 1000);
+        };
+        sClock();
+
+        // 分針
+        
+        // function mClock(){
+        //     const now_m = new Date;
+            
+        //     const m = now_m.getMinutes();
+        //     min_hand.style.transform = `rotate(${s*6}deg)`;
+
+        //     setTimeout(mClock, 60000);
+        // };
+        // mClock();
+
+
+
+
+
+
+        /*
+        1. 分針, 時針
+        2. 秒針等速度
+        3. 刻度
+        */
+        
+
+
+
+    </script>
+</body>
+</html>

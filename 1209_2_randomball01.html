@@ -31,10 +31,10 @@
         for (let i=0 ; i<100 ; i++) {
             const b = document.createElement('div');
             b.className = 'ball';
-            b.style.left = Math.floor(Math.random()*600)+'px';
+            b.style.left = Math.floor(Math.random()*600)+'px'; //亂數取小於等於的最大整數 0~599
             b.style.top = Math.floor(Math.random()*600)+'px';
-            const size = 5 + Math.floor(Math.random()*31)+'px';
-            b.style.width=b.style.height=size;
+            const size = 5 + Math.floor(Math.random()*31)+'px'; // 限定尺寸範圍，最小從5開始，最大到30
+            b.style.width=b.style.height=size; //正圓形所以高度等於寬度
             b.style.backgroundColor=`hsl(${Math.random()*360},50%,60%)`;
             // b.style.backgroundColor=`rgb(${Math.random()*256},${Math.random()*256},${Math.random()*256})`;  //rgb寫法
             rect.append(b);
