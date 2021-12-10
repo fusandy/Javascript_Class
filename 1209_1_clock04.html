@@ -48,6 +48,13 @@
     <span id="info"></span>
 
     <div class="clock">
+
+        <!-- 刻度 -->
+        <div class="hand" id="tick_container">
+            <div class="tickc">
+                <div class="tick"></div>
+            </div>
+        </div>
         <!-- 秒針 -->
         <div class="hand" id="sec_hand">
             <div class="sec-hand"></div>
@@ -56,11 +63,23 @@
         <div class="hand" id="min_hand">
             <div class="min-hand"></div>
         </div>
+        <!-- 時針 -->
+        <div class="hand" id="hr_hand">
+            <div class="hr-hand"></div>
+        </div>
+        
     </div>
     
     <script>
+        /*
+        1. 分針, 時針
+        2. 秒針等速度
+        3. 刻度
+        */
+
         const sec_hand = document.querySelector('#sec_hand');
         const min_hand = document.querySelector('#min_hand');
+        const hr_hand = document.querySelector('#hr_hand');
 
         // sec_hand.style.transform = 'rotate(30deg)';
         
@@ -76,28 +95,14 @@
         };
         sClock();
 
-        // 分針
         
-        // function mClock(){
-        //     const now_m = new Date;
-            
-        //     const m = now_m.getMinutes();
-        //     min_hand.style.transform = `rotate(${s*6}deg)`;
-
-        //     setTimeout(mClock, 60000);
-        // };
-        // mClock();
 
 
 
 
 
 
-        /*
-        1. 分針, 時針
-        2. 秒針等速度
-        3. 刻度
-        */
+        
         
 
 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eyeballs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .face {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background-color: #000000;
+            border: black 1px solid;
+            border-radius: 50%;
+        }
+        .eye {
+            position: absolute;
+            left: 200px;
+            top: 300px;
+        }
+        .eye-white {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+            left: -30px;
+            top: -30px;
+        }
+        .eye-black {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #000000;
+            left: 0px;
+            top: -15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="face">
+        <div class="eye">
+            <div class="eye-white"></div>
+            <div class="eye-black"></div>
+        </div>
+    </div>
+
+    <script>
+        // 單顆眼睛
+        // 因為弧度0的時候，是y=0，所以眼睛一定要放在右邊，然後再設定角度旋轉
+
+        const e1 = document.querySelector('.eye'); // 整包eye隨著滑鼠游標轉動
+
+        window.addEventListener('mousemove', function(event){
+
+            const dx = event.pageX - 200;  // 取得滑鼠所在位置的x座標 - 圓心的x軸200
+            const dy = event.pageY - 300;  // 取得滑鼠所在位置的y座標 - 圓心的y軸300
+            e1.style.transform = `rotate(${Math.atan2(dy, dx)/Math.PI*180}deg)`;
+            
+            // 弧度換算成旋轉的degree = tan(dy,dx) / 拍 * 180
+            //event.pageX
+        });
+
+
+
+
+    </script>
+</body> 
+</html>

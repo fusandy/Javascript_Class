@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sic cos02</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background-color: #c2eaf4;
+            border: black 1px solid;
+        }
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e92b55;
+            border: black 1px solid;
+            color: white;
+            line-height: 40px;
+            text-align: center;
+            transition: 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+    </div>
+<script>
+        const rect = document.querySelector('.rect');
+
+        const ballNum = 12;
+        const angUnit = 2 * Math.PI/ballNum; // radian, 弧度
+        const bData = [];
+
+        for(let i=0; i<ballNum; i++){
+            const b = document.createElement('div');
+            b.className = 'ball';
+            b.innerHTML = (i+1).toString();
+            b.style.left = '300px';
+            b.style.top = '300px';
+            // b.style.left = 300 + 200*Math.cos(angUnit*i-Math.PI/3) + 'px';
+            // b.style.top = 300 + 200*Math.sin(angUnit*i-Math.PI/3) + 'px';
+            rect.append(b);
+
+            bData.push({
+                el: b,
+                beginX: 300,
+                beginY: 300,
+                endX: 300 + 200*Math.cos(angUnit*i-Math.PI/3),
+                endY: 300 + 200*Math.sin(angUnit*i-Math.PI/3),
+            })
+        }
+
+
+        // 從圓心一起向外散開
+        /*
+            setTimeout(function(){
+                bData.forEach(({el, beginX, beginY, endX, endY})=>{
+                    el.style.left = endX + 'px';
+                    el.style.top = endY + 'px';
+                })
+            }, 2000);
+        */
+
+        // 從圓心向外接續散開
+            bData.forEach(({el, beginX, beginY, endX, endY}, i)=>{
+            setTimeout(function(){
+                el.style.left = endX + 'px';
+                el.style.top = endY + 'px';
+            }, i*50);
+        })
+
+
+</script>
+    </script>
+</body>
+</html>

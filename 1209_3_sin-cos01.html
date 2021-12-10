@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sic cos</title>
+    <title>sic cos01</title>
     <style>
          .rect {
             position: relative;
@@ -39,9 +39,10 @@
     for(let i=0; i<ballNum; i++){
         const b = document.createElement('div');
         b.className = 'ball';
-        b.innerHTML = i.toString();
-        b.style.left = 280 + 260*Math.cos(angUnit*i) + 'px'; //圓心300 半徑200
-        b.style.top = 280 + 260*Math.sin(angUnit*i) + 'px';
+        b.innerHTML = (i+1).toString();
+        b.style.left = 280 + 260*Math.cos(angUnit*i-Math.PI/3) + 'px'; //圓心300 半徑200  
+        b.style.top = 280 + 260*Math.sin(angUnit*i-Math.PI/3) + 'px';
+        //起始是水平0，全體一起逆時針轉60度，讓數字1從正常時鐘的位置開始。60度=1/3拍
         rect.append(b);
     }
 

@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>random ball01</title>
+    <title>random ball03</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
         .rect{
             position: relative;
             width: 600px;
@@ -25,20 +29,27 @@
     <div class="rect"></div>
     
     <script>
-        // 靜態的亂數泡泡
+        // 點擊畫面產生泡泡
         const rect = document.querySelector('.rect');
 
-        for (let i=0 ; i<100 ; i++) {
+        function createRandomBall(x, y) {
+        
             const b = document.createElement('div');
             b.className = 'ball';
-            b.style.left = Math.floor(Math.random()*600)+'px';
-            b.style.top = Math.floor(Math.random()*600)+'px';
-            const size = 5 + Math.floor(Math.random()*31)+'px';
-            b.style.width=b.style.height=size;
+
+            const size = 5 + Math.floor(Math.random()*31);
+            b.style.width = b.style.height = size + 'px';
+            b.style.left = x - size/2 + 'px';  //pageX座標的一半
+            b.style.top = y -size/2 + 'px';    //pageY座標的一半  -> 此作法可讓滑鼠的位置是球球的中心點
             b.style.backgroundColor=`hsl(${Math.random()*360},50%,60%)`;
-            // b.style.backgroundColor=`rgb(${Math.random()*256},${Math.random()*256},${Math.random()*256})`;  //rgb寫法
-            rect.append(b);
+            
+            return b;
         };
+
+        rect.addEventListener('click', function(event){
+        const b = createRandomBall(event.pageX, event.pageY);
+        rect.append(b);
+        });
         
     </script>
 </body>

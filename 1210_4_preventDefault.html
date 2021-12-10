@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>preventDefault</title>
+    
+</head>
+<body>
+    <a href="https://www.youtube.com/" onclick="return true" id="btn1">1111</a>
+    <br>
+    <!-- onclick包在function裡面，而這個function內要做的事: return false，false不連到link，true會還過去 -->
+
+    <a href="https://www.youtube.com/" onclick="event.preventDefault()" id="btn2">2222-1</a>
+    <br>
+    <!-- a 本身預設是要連到youtube，下了preventDefault會讓這個動作取消 -->
+    <a href="https://www.youtube.com/" class="sol2">2222-2</a>
+    <br>
+
+    <a href="https://www.youtube.com/" onclick="return confirm('要連嗎?')" id="btn3">3333</a>
+
+   <script>
+       // 用addEventListener作preventDefault
+
+        const sol2 = document.querySelector('.sol2');
+
+        sol2.addEventListener('click',function(event){
+            event.preventDefault();
+        });
+
+   </script> 
+   
+
+</body>
+</html>

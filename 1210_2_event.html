@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body>
+    <h2 onclick="console.log(event);myClick()" id="hello">Hello</h2>
+    <!-- console.log(event) 根據事件處理器呼叫function並傳遞參數給function -->
+    <script>
+        const hello = document.querySelector('#hello');
+        
+        // 行內寫法
+/*        function myClick(){
+            alert('Welcome');
+        };
+*/
+        // 屬性寫法
+        hello.onclick = function(event){  // 參數可自行命名
+            console.log(event);
+            alert('Welcome Back');
+        };
+
+    </script>
+
+</body>
+</html>
