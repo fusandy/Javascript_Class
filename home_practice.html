@@ -7,19 +7,39 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="rect"></div>
-</body>
+    <div id="div"></div>
 
-<script>
-    var a = 1 ;
-    (function(){
-        var b = 2;
-        (function(){
-            var c = 3;
-            console.log('a:',a);
-            console.log('b:',b);
-            console.log('c:',c);          
-        })();
-    })();
-</script>
+    <script>
+        const div = document.querySelector('#div')
+        // function doesExist(nums, numb){
+        //     for(let i=0; i<nums.length; i++){
+        //         if (nums[i] === numb){
+        //         return true;
+        //         } 
+        //     }
+        //     return false
+        //     }
+    
+        //     console.log(doesExist([1,3,5,7],2));
+        
+    
+        let ar = ['apple','banana','cat','dog','egg','flower'];
+        let str='';
+    
+        // use index to find value in order
+        // for (let i=0; i<ar.length; i++){
+        //     str += ar[i];
+        // }
+        // div.innerHTML=str;
+    
+        // just print out all the values in order
+        for(let value of ar){
+            str += value;
+        }
+        div.innerHTML=str;
+        
+    </script>
+</body>
+    
+
 </html>

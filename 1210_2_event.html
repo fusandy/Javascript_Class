@@ -7,18 +7,25 @@
     <title>event</title>
 </head>
 <body>
-    <h2 onclick="console.log(event);myClick()" id="hello">Hello</h2>
-    <!-- console.log(event) 根據事件處理器呼叫function並傳遞參數給function -->
+    <!-- DOM 行內寫法  -->
+    <!-- <h2 onclick="myClick()" id="hello">Hello1</h2> -->
+
+    <!-- 'hello'這個element的屬性寫法 -->
+    <h2 onclick="console.log(event);myClick()" id="hello">Hello2</h2>
+    
+    <!-- console.log(event) 根據事件處理器呼叫function並傳遞參數給function，event不可任意更改 -->
+    
     <script>
+        // 透過id拿到element
         const hello = document.querySelector('#hello');
         
-        // 行內寫法
-/*        function myClick(){
-            alert('Welcome');
-        };
-*/
-        // 屬性寫法
-        hello.onclick = function(event){  // 參數可自行命名
+        // JS 行內寫法
+        // function myClick(){
+        //     alert('Welcome');
+        // };
+
+        // 'hello'這個element的屬性寫法
+        hello.onclick = function(event){  // 這裡的event是形式參數，可自行命名
             console.log(event);
             alert('Welcome Back');
         };

@@ -41,15 +41,13 @@
             const b = document.createElement('div');
             b.className = 'ball';
             b.innerHTML = (i+1).toString();
-            b.style.left = '300px';
+            b.style.left = '300px'; //12顆球的圓心全部移到圓心300,300的位置
             b.style.top = '300px';
-            // b.style.left = 300 + 200*Math.cos(angUnit*i-Math.PI/3) + 'px';
-            // b.style.top = 300 + 200*Math.sin(angUnit*i-Math.PI/3) + 'px';
             rect.append(b);
 
-            bData.push({
-                el: b,
-                beginX: 300,
+            bData.push({    //把物件push進陣列bData
+                el: b,      //el元素就是b
+                beginX: 300,   //圓的起始位置(x,y)=(300,300)
                 beginY: 300,
                 endX: 300 + 200*Math.cos(angUnit*i-Math.PI/3),
                 endY: 300 + 200*Math.sin(angUnit*i-Math.PI/3),
@@ -58,23 +56,23 @@
 
 
         // 從圓心一起向外散開
-        /*
+
             setTimeout(function(){
                 bData.forEach(({el, beginX, beginY, endX, endY})=>{
                     el.style.left = endX + 'px';
                     el.style.top = endY + 'px';
                 })
             }, 2000);
-        */
+
 
         // 從圓心向外接續散開
-            bData.forEach(({el, beginX, beginY, endX, endY}, i)=>{
+/*            bData.forEach(({el, beginX, beginY, endX, endY}, i)=>{
             setTimeout(function(){
                 el.style.left = endX + 'px';
                 el.style.top = endY + 'px';
             }, i*50);
         })
-
+*/
 
 </script>
     </script>

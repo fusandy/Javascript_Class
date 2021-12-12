@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>clock03</title>
+    <title>clock04</title>
     <style>
         .clock{
             position: relative;
@@ -15,30 +15,45 @@
         }
         .hand{
             position: absolute;
-            left: 296px;
+            left: 300px;
             top: 300px;
-            background-color:white;
-            width:4px;
-            height: 4px;
-            border-radius: 50%;
         }
         .sec-hand{
             position: absolute;
-            width: 4px;
-            height: 280px;
+            width: 2px;
+            height: 250px;
             background-color: rgb(255, 255, 255);
             border-radius: 3px;
-            /* left: -2px; */
-            top: -277px; 
+            top: -250px; 
         }
         .min-hand{
             position: absolute;
-            width: 6px;
-            height: 150px;
-            background-color: rgb(231, 243, 59);
+            width: 4px;
+            height: 220px;
+            background-color: rgb(243, 222, 31);
             border-radius: 3px;
-            left: -1px;
-            top: -148px;
+            left: -2px;
+            top: -220px;
+        }
+        .hr-hand{
+            position: absolute;
+            width: 4px;
+            height: 140px;
+            background-color: rgb(243, 89, 28);
+            border-radius: 3px;
+            left: -2px;
+            top: -140px;
+        }
+        .tickc{
+            position: absolute;
+        }
+        .tick{
+            position: absolute;
+            width: 1px;
+            height: 20px;
+            background-color: rgb(255, 255, 255);
+            left: -2px;
+            top: -300px;
         }
     </style>
 </head>
@@ -50,51 +65,68 @@
     <div class="clock">
 
         <!-- 刻度 -->
-        <div class="hand" id="tick_container">
+        <div class="hand" id="ticks_container">
             <div class="tickc">
                 <div class="tick"></div>
             </div>
-        </div>
-        <!-- 秒針 -->
-        <div class="hand" id="sec_hand">
-            <div class="sec-hand"></div>
-        </div>
-        <!-- 分針 -->
-        <div class="hand" id="min_hand">
-            <div class="min-hand"></div>
         </div>
         <!-- 時針 -->
         <div class="hand" id="hr_hand">
             <div class="hr-hand"></div>
         </div>
+        <!-- 分針 -->
+        <div class="hand" id="min_hand">
+            <div class="min-hand"></div>
+        </div>
+        <!-- 秒針 -->
+        <div class="hand" id="sec_hand">
+            <div class="sec-hand"></div>
+        </div>
+        
         
     </div>
     
     <script>
-        /*
-        1. 分針, 時針
-        2. 秒針等速度
-        3. 刻度
-        */
-
+        const tc = document.querySelector('#ticks_container');
         const sec_hand = document.querySelector('#sec_hand');
         const min_hand = document.querySelector('#min_hand');
         const hr_hand = document.querySelector('#hr_hand');
-
-        // sec_hand.style.transform = 'rotate(30deg)';
         
-        // 秒針
+
+        // 用迴圈把刻度生成出來放進DOM
+        let str = '';
+        
+        for(let i=0 ; i<60 ; i++){
+            let myStyle = '';
+            if (i%5 === 0){
+                myStyle = "width:2px; height:40px;";
+            }
+            str +=`<div class="tickc" style="transform:rotate(${i*6}deg);">
+                <div class="tick" style="${myStyle}"></div>
+                </div>`;
+        };
+        tc.innerHTML = str;
+
+
+
         function sClock(){
             const now = new Date;
             info.innerHTML = now.toString().split(' ')[4];
         
             const s = now.getSeconds();
-            sec_hand.style.transform = `rotate(${s*6}deg)`;
-            // 一分鐘60秒，360度 => 1秒跑6度
-            setTimeout(sClock, 1000);
+            const m = now.getMinutes();
+            const h = now.getHours();
+            const ms = now.getMilliseconds();
+
+            // 讓秒針等速度跑，用毫秒
+            sec_hand.style.transform = `rotate(${s*6 + 6/1000*ms}deg)`;
+            min_hand.style.transform = `rotate(${m*6}deg)`;
+            hr_hand.style.transform = `rotate(${h*30 + .5*m}deg)`; //因為時針會隨著時間慢慢移動30度
+            setTimeout(sClock, 30); //人的視差範圍:30毫秒跑一次
         };
         sClock();
 
+        
         
 
 

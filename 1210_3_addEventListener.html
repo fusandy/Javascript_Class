@@ -22,17 +22,19 @@
 
     <script>
         const [r1, r2] = document.querySelectorAll('.rect');
-
-        const listener1 = function(event){
+       
+        // 新的事件處理器可以一個處理器參照多個function，也可以多對一
+        // 但是相同的參照，只會出現一次
+        r1.addEventListener('click', function(event){
             console.log(1);
-        };
-
-        
-        r1.addEventListener('click', listener1);
+        });
         r1.addEventListener('click', function(event){
             console.log(2);
         });
 
+        const listener1 = function(event){
+            console.log(1);
+        };
         r2.addEventListener('click', listener1);
     </script>
 
