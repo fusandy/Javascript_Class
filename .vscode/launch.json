@@ -5,10 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch Chrome",
+            "request": "launch",
+            "type": "pwa-chrome",
+            "url": "http://localhost:5500/1213_4_old_OOP01.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
             "type": "pwa-chrome",
             "request": "launch",
-            "name": "Open 1206_1_object_const.html",
-            "file": "c:\\Users\\fusan\\Documents\\GitHub\\Javascript_Class\\1206_1_object_const.html"
+            "name": "Open 1213_4_old_OOP01.html",
+            "file": "c:\\Users\\fusan\\Documents\\GitHub\\Javascript_Class\\1213_4_old_OOP01.html"
         }
     ]
 }

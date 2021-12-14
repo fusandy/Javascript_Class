@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new Object-oriented programming</title>
+</head>
+<body>
+    <script>
+        // 新的物件導向寫法
+        
+        class Person {
+        // 建構函式
+        constructor(name, age, gender='male') {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+        sayHello(){
+            return this.name + ': Hello';
+        }
+        toString(){
+            return JSON.stringify( this.toJSON() );
+        }
+        toJSON(){
+            return {name: this.name, age: this.age};
+        }
+    }
+
+    const p1 = new Person('Bill', 20);
+    console.log(p1.name);
+    console.log(p1.sayHello());
+    console.log('' + p1);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random ball06</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .rect{
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background-color: rgb(231, 231, 231);
+        }
+        .ball{
+            position: absolute;
+            width:20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color:rgba(255, 255, 255, 0.746);
+        }
+    </style>
+</head>
+<body>
+    <div class="rect"></div>
+    <button onclick="show()">convert</button>
+    <br>
+    
+    <script>
+        // 利用AJAX提出需求，並將資料從JSON檔中拿回來
+        const rect = document.querySelector('.rect');
+        let data;   //此時data存在JSON檔案中
+
+        function createBall({x,y,size,color}) {
+            const b = document.createElement('div');
+            b.className = 'ball';
+            b.style.width = b.style.height = size + 'px';
+            b.style.left = x - size/2 + 'px';  
+            b.style.top = y -size/2 + 'px';    
+            b.style.backgroundColor = color;
+            data.push({x,y,size,color});            
+            return b;
+        };
+
+        function show(){     //點擊button後，觸發onclick事件處理器
+            const xhr = new XMLHttpRequest();    //觸發後，開始利用AJAX取得JSON資料
+            xhr.onload = function(){
+                const str = xhr.responseText;
+                data = JSON.parse(str);
+
+                data.forEach(function(o){
+                rect.append(createBall(o));
+                });
+            };
+            xhr.open('GET','./data01.json');
+            xhr.send();
+        }
+
+        
+        
+
+        
+
+
+        
+    </script>
+</body>
+</html>

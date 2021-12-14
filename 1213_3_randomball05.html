@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random ball05</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .rect{
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background-color: rgb(231, 231, 231);
+        }
+        .ball{
+            position: absolute;
+            width:20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color:rgba(255, 255, 255, 0.746);
+        }
+    </style>
+</head>
+<body>
+    <div class="rect"></div>
+    <button onclick="ta.value=JSON.stringify(data)">convert</button>
+    <br>
+    <textarea name="" id="ta" cols="80" rows="10"></textarea>
+    
+    <script>
+        // 將產生的泡泡轉變成JSON data
+        const rect = document.querySelector('.rect');
+        const data = [];
+
+        function createRandomBall(x, y) {
+        
+            const b = document.createElement('div');
+            b.className = 'ball';
+
+            const size = 5 + Math.floor(Math.random()*31);
+            b.style.width = b.style.height = size + 'px';
+            b.style.left = x - size/2 + 'px';  //pageX座標的一半
+            b.style.top = y -size/2 + 'px';    //pageY座標的一半  -> 此作法可讓滑鼠的位置是球球的中心點
+            const color = `hsl(${Math.random()*360},50%,60%)`;
+            b.style.backgroundColor = color;
+            data.push({x,y,size,color});            
+            return b;
+        };
+
+        
+        // 按下滑鼠拖曳，變成球球畫筆
+        const mDown = function(event){
+            rect.addEventListener('mousemove',mMove);
+        }
+        const mUp = function(event){
+            rect.removeEventListener('mousemove',mMove);
+        }
+        const mMove = function(event){
+            const b = createRandomBall(event.pageX, event.pageY);
+            rect.append(b);
+        }
+        rect.addEventListener('mousedown',mDown);
+        window.addEventListener('mouseup', mUp); // 在 window 的任何位置放開就取消
+
+
+
+        
+    </script>
+</body>
+</html>

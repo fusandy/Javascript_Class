@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sic cos03</title>
+    <style>
+         .rect {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background-color: #c2eaf4;
+            border: black 1px solid;
+        }
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e92b55;
+            border: black 1px solid;
+            color: white;
+            line-height: 40px;
+            text-align: center;
+            /* pointer-events: none; 使物件對滑鼠任何動作都不產生反應 */
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+    </div>
+<script>
+    const rect = document.querySelector('.rect');
+
+    const ballNum = 12;  //12顆圓球
+    const angUnit = 2 * Math.PI/ballNum; // angUnit單位角度;radian弧度  // 2拍=360度 => 2拍/12小圓圈=每個小圓圈的弧度
+
+
+    for(let i=0; i<ballNum; i++){
+        const b = document.createElement('div');
+        b.className = 'ball';
+        b.innerHTML = (i+1).toString();
+        b.style.left = 280 + 260*Math.cos(angUnit*i-Math.PI/3) + 'px'; //圓心300 半徑200  
+        b.style.top = 280 + 260*Math.sin(angUnit*i-Math.PI/3) + 'px';
+        //起始是水平0，全體一起逆時針轉60度，讓數字1從正常時鐘的位置開始。60度=1/3拍
+        rect.append(b);
+    }
+
+    // 增加點擊ball會消失的功能
+    rect.addEventListener('click',function(event){
+        // event.target.className     // 判斷CSS類別名,字串"ball"
+        // event.target.classList.contains('ball')   // 判斷classList中有沒有包含某個class
+        if(event.target.className==='ball'){
+            event.target.remove();  //從DON上移除target
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
